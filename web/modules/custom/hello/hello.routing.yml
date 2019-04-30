@@ -1,0 +1,21 @@
+hello.nodeList:
+  path: '/hello/nodeList/{nodeType}'
+  defaults:
+    _title: 'Node list'
+    _controller: '\Drupal\hello\Controller\NodeListController::nodeContent'
+    nodeType: ''
+  requirements:
+    _access:  'TRUE'
+
+
+hello.hello:
+  path: '/hello/{param}'
+  defaults:
+    _title: 'Hello'
+    _controller:  '\Drupal\hello\Controller\HelloController::helloContent'
+    param: 'no param'
+  requirements:
+    _access:  'TRUE'
+
+
+

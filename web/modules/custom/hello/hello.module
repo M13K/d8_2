@@ -1,0 +1,37 @@
+<?php
+
+use Drupal\user\UserInterface;
+
+/**
+ * @param $route_name
+ * @param \Drupal\Core\Routing\RouteMatchInterface $route_match
+ * @return string
+ */
+function hello_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match)
+{
+    switch ($route_name) {
+
+        // Main module help for the block module.
+        case 'help.page.hello':
+            return '<p>' . t('This module aims at recording user connection activity'
+                ) . '</p>';
+    }
+}
+
+/**
+ *
+ */
+function hello_cron() {
+   \Drupal::messenger()->addMessage(t('Hello cron'));
+
+}
+
+/**
+ * @param UserInterface $account
+ */
+function hello_user_login(UserInterface $account) {
+
+    \Drupal::messenger()->addMessage(t('Welcome dear %name',
+        ['%name' => $account->getAccountName()]));
+
+}

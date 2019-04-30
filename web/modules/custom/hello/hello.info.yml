@@ -1,0 +1,10 @@
+#nom du module
+name: hello
+description: Hello module for d8 developper training.
+type: module
+core: 8.x
+version:  8.x-1.0
+package:  training
+
+
+
