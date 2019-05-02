@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Composer template for Drupal projects
 
 [![Build Status](https://travis-ci.org/drupal-composer/drupal-project.svg?branch=8.x)](https://travis-ci.org/drupal-composer/drupal-project)
@@ -143,3 +144,6 @@ To prevent this you can add this code to specify the PHP version you want to use
     }
 },
 ```
+=======
+# d8_2
+>>>>>>> 1f455078a7b7fb6d775f9ffab43d5624f30a1974
