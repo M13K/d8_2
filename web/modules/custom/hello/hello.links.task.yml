@@ -9,3 +9,9 @@ hello.nodeList:
   route_name: hello.nodeList
   base_route: hello.hello
   weight: 2
+
+hello.userStatistics:
+  title: userStatistics
+  route_name: hello.userStatistics
+  base_route: entity.user.canonical
+  weight: 2

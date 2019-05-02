@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\user\UserInterface;
+use Drupal\Core\Session\AccountInterface;
 
 /**
  * @param $route_name
@@ -28,10 +29,38 @@ function hello_cron() {
 
 /**
  * @param UserInterface $account
+ * @throws Exception
  */
 function hello_user_login(UserInterface $account) {
 
     \Drupal::messenger()->addMessage(t('Welcome dear %name',
         ['%name' => $account->getAccountName()]));
+
+    //Enregistrement des connexions utilisateurs
+    $database = \Drupal::database();
+    $database->insert('hello_user_statistics')
+              ->fields([
+                'uid' => $account->id(),
+                 'action'=> '1',
+                'time' => REQUEST_TIME,
+               ])
+            ->execute();
+
+}
+
+    //Enregistrement des déconnexions
+/**
+ * @param AccountInterface $account
+ * @throws Exception
+ */
+function hello_user_logout(AccountInterface $account) {
+    $database = \Drupal::database();
+    $database->insert('hello_user_statistics')
+        ->fields([
+            'uid' => $account->id(),
+            'action'=> '0',
+            'time' => REQUEST_TIME,
+        ])
+        ->execute();
 
 }

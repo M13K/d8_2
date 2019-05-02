@@ -7,6 +7,14 @@ hello.nodeList:
   requirements:
     _access:  'TRUE'
 
+hello.userStatistics:
+  path: '/user/{user}/statistics'
+  defaults:
+    _title: 'User stats'
+    _controller:  '\Drupal\hello\Controller\UserStatisticsController::userStatistics'
+  requirements:
+    _access:  'TRUE'
+
 
 hello.hello:
   path: '/hello/{param}'
@@ -16,6 +24,8 @@ hello.hello:
     param: 'no param'
   requirements:
     _access:  'TRUE'
+
+
 
 
 
