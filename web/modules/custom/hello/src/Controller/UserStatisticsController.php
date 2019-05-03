@@ -16,17 +16,25 @@ class UserStatisticsController extends ControllerBase
 {
     public function userStatistics(UserInterface $user) {
         $db = \Drupal::database();
-        $query = $db->select('hello_user_statistics')
-            ->fields(['action'])
-            ->execute()
-            ->fetchField();
-        $build = [
-            '#table' =>[
-                'query'=>$query
-            ]
-        ];
+        $queryResults = $db->select('hello_user_statistics', 'h')
+            ->fields('h',['action', 'time'])
+            ->condition('uid', $user->id())
+            ->execute();
 
-        return $build;
+        $rows = [];
+
+        foreach ($queryResults as $record){
+            $rows[] = [
+                $record->action == '1' ? $this->t('Login') : $this->t('Logout'),
+                \Drupal::service('date.formatter')->format($record->time)];
+
+        }
+
+        return [
+            '#type' => 'table',
+            '#header' => [$this->t('Action'), $this->t('Time')],
+            '#rows' => $rows,
+        ];
 
     }
 }

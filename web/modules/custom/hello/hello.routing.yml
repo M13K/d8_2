@@ -15,6 +15,22 @@ hello.userStatistics:
   requirements:
     _access:  'TRUE'
 
+hello.calculator:
+  path: '/hello/calculator'
+  defaults:
+    _title: 'Calculator'
+    _form:  '\Drupal\hello\Form\CalculatorForm'
+  requirements:
+    _access:  'TRUE'
+
+hello.config:
+  path: 'admin/config/hello'
+  defaults:
+    _title: 'User statistics'
+    _form:  '\Drupal\hello\Form\ConfigForm'
+  requirements:
+    _access:  'TRUE'
+
 
 hello.hello:
   path: '/hello/{param}'

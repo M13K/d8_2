@@ -11,7 +11,13 @@ hello.nodeList:
   weight: 2
 
 hello.userStatistics:
-  title: userStatistics
+  title: UserStatistics
   route_name: hello.userStatistics
   base_route: entity.user.canonical
+  weight: 2
+
+hello.calculator:
+  title: Calculator
+  route_name: hello.calculator
+  base_route: hello.hello
   weight: 2
