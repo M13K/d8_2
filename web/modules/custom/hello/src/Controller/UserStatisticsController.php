@@ -22,19 +22,28 @@ class UserStatisticsController extends ControllerBase
             ->execute();
 
         $rows = [];
+        $count_login = 0;
 
         foreach ($queryResults as $record){
             $rows[] = [
                 $record->action == '1' ? $this->t('Login') : $this->t('Logout'),
                 \Drupal::service('date.formatter')->format($record->time)];
-
+                $count_login+= $record->action;
         }
 
-        return [
+        $table =  [
             '#type' => 'table',
             '#header' => [$this->t('Action'), $this->t('Time')],
             '#rows' => $rows,
         ];
+        $output = 
+            array(
+                '#theme' => 'hello_user_connexion',
+                '#user' => $user->label(),
+                '#count_login' => $count_login
+            );
+        return [$output, $table];
 
     }
+
 }

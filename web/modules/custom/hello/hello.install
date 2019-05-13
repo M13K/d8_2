@@ -9,7 +9,7 @@
 use Drupal\Core\Database\Database;
 
 /**
- * Implements hook_schema
+ * Implements hook_schema création de la table hello_user_statistics
  */
 function hello_schema(){
     $schema['hello_user_statistics'] = [
@@ -43,6 +43,14 @@ function hello_schema(){
         'primary key' => ['id'],
     ];
     return $schema;
+}
+
+/**
+ * Implements hook_uninstall
+ */
+
+function hello_uninstall(){
+    \Drupal::state()->delete('hello_form_submission_time');
 }
 
 /**

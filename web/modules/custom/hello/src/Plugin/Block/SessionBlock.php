@@ -9,7 +9,9 @@
 namespace Drupal\hello\Plugin\Block;
 
 
+use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Session\AccountInterface;
 
 /**
  * Class SessionBlock
@@ -42,5 +44,11 @@ class SessionBlock extends BlockBase
         ];
 
         return $build;
+    }
+
+    protected function blockAccess(AccountInterface $account)
+    {
+
+        return AccessResult::allowedIfHasPermission($account, 'access hello');
     }
 }

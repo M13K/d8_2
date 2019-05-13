@@ -2,6 +2,7 @@
 
 use Drupal\user\UserInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * @param $route_name
@@ -23,8 +24,13 @@ function hello_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route
  *
  */
 function hello_cron() {
-   \Drupal::messenger()->addMessage(t('Hello cron'));
-
+//   \Drupal::messenger()->addMessage(t('Hello cron'));
+    $purge_days_number = \Drupal::config('hello.settings')->get('purge_days_number');
+    $nb_suppressions = \Drupal::database()->delete('hello_user_statistics')
+        ->condition('time', REQUEST_TIME - $purge_days_number * (24*3600), '<')
+        ->execute();
+    \Drupal::messenger()->addMessage(t('@nb_suppressions records have been deleted.',
+        ['@nb_suppressions' => $nb_suppressions]));
 }
 
 /**
@@ -63,4 +69,18 @@ function hello_user_logout(AccountInterface $account) {
         ])
         ->execute();
 
+}
+
+/*
+ * implements HOOK_theme 
+ */
+
+function hello_theme($existing, $type, $theme, $path){
+
+    return array(
+        'hello_user_connexion' => array(
+            'template' => 'hello-user-connexion',
+            'variables' => array('count_login' => NULL, 'user' => NULL)
+            ),
+    );
 }

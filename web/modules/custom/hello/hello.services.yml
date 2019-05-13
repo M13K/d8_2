@@ -1,0 +1,9 @@
+services:
+  access_check.hello:
+    class: Drupal\hello\Access\Access_check_hello
+    tags:
+      - { name: access_check, applies_to: _access_hello}
+  hello.event_subscriber:
+      class: Drupal\hello\Routing\EventBase
+      tags:
+        - { name: event_subscriber}

@@ -13,7 +13,8 @@ hello.userStatistics:
     _title: 'User stats'
     _controller:  '\Drupal\hello\Controller\UserStatisticsController::userStatistics'
   requirements:
-    _access:  'TRUE'
+    _access_hello: '20'
+    user: '\d+'
 
 hello.calculator:
   path: '/hello/calculator'
@@ -21,7 +22,7 @@ hello.calculator:
     _title: 'Calculator'
     _form:  '\Drupal\hello\Form\CalculatorForm'
   requirements:
-    _access:  'TRUE'
+    _permission: 'access hello'
 
 hello.config:
   path: 'admin/config/hello'
@@ -29,7 +30,7 @@ hello.config:
     _title: 'User statistics'
     _form:  '\Drupal\hello\Form\ConfigForm'
   requirements:
-    _access:  'TRUE'
+    _permission: 'administer hello'
 
 
 hello.hello:

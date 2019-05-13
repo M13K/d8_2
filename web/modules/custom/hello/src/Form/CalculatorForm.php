@@ -81,7 +81,7 @@ class CalculatorForm extends FormBase
         $operation = $form_state->getValue('operation');
 
 //        $result = 0;
-        ksm($secondvalue);
+//        ksm($secondvalue);
 
        if($operation == 'addition'){
            $result = $firstvalue + $secondvalue;
@@ -92,8 +92,12 @@ class CalculatorForm extends FormBase
        }else{
            $result = $firstvalue / $secondvalue;
        }
-       $form_state->addRebuildInfo('result', $result);
+
+        $form_state->addRebuildInfo('result', $result);
         $form_state->setRebuild();
+
+        \Drupal::state()->set('hello_form_submission_time', \Drupal::service('datetime.time')->getCurrentTime());
+
 //        ksm($form_state);
 
 //        \Drupal::service('messenger')->addMessage($result);

@@ -11,7 +11,7 @@ hello.nodeList:
   weight: 2
 
 hello.userStatistics:
-  title: UserStatistics
+  title: Connections
   route_name: hello.userStatistics
   base_route: entity.user.canonical
   weight: 2

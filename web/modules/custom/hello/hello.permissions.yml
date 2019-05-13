@@ -1,0 +1,9 @@
+access hello:
+  title: 'Access Hello'
+  description: 'Allow users to access hello block'
+  restrict access: 'true'
+
+administer hello:
+  title: 'Administer Hello'
+  description: 'Deny anonymous to access config'
+  restrict access: 'true'
