@@ -84,3 +84,42 @@ function hello_theme($existing, $type, $theme, $path){
             ),
     );
 }
+
+/**
+ * @param array $form
+ * @param FormStateInterface $form_state
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ */
+function hello_form_user_admin_settings_alter(array &$form, FormStateInterface $form_state){
+
+
+
+    $roles_config= \Drupal::config('hello.settings')->get('role_user_connexion');
+
+    $roles= \Drupal::entityTypeManager()->getStorage('user_role')->loadMultiple();
+//    ksm($form);
+    unset($roles['anonymous']);
+    foreach ($roles as $key=>$role){
+        $options[$key] = $role->label();
+    }
+
+    $form['test']=[
+        '#type'=>'details',
+        '#title'=>t('Roles for wich to collect activity statistics.'),
+        '#open'=>TRUE,
+        '#weight'=> '-100',
+    ];
+    $form['test']['roles']=[
+        '#type'=>'checkboxes',
+        '#options'=>$options,
+        '#default_value'=> $roles_config,
+    ];
+    $form['#submit'][]='hello_form_admin_settings_submit';
+
+}
+function hello_form_admin_settings_submit(array &$form, FormStateInterface $form_state){
+    $config = \Drupal::configFactory()->getEditable('hello.settings');
+    $config->set('role_user_connexion',$form_state->getValue('roles'))->save();
+
+}
