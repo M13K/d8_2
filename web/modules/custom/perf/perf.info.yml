@@ -1,0 +1,5 @@
+name: 'Perf'
+type: module
+description: 'Manage a block with a placeholder render array'
+core: 8.x
+package: 'Training'
