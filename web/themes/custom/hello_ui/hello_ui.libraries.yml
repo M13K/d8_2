@@ -1,0 +1,18 @@
+global:
+  version: 1.x
+  js:
+    js/global.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+  css:
+    theme:
+      css/style.css: {}
+      css/wysiwyg.css:  {}
+
+articles-strange:
+  version: 1.x
+  js:
+    js/strange.js: {}
+

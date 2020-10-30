@@ -43,6 +43,11 @@ hello.hello:
     _access:  'TRUE'
 
 
-
-
+hello.newsletter_form:
+  path: '/hello/form/newsletter'
+  defaults:
+    _form: '\Drupal\hello\Form\NewsletterForm'
+    _title: 'NewsletterForm'
+  requirements:
+    _access: 'TRUE'
 

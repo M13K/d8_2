@@ -1,0 +1,35 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: malik
+ * Date: 25/10/20
+ * Time: 23:37
+ */
+
+/**
+ * @param array $suggestions
+ * @param array $variables
+ */
+function hello_ui_theme_suggestions_node_alter(array &$suggestions, array $variables){
+
+  $elements = $variables['elements'];
+  $node = $elements['#node'];
+
+  if ($node->getType() === 'article' && strstr($node->getTitle(), 'strange') !== FALSE){
+    $suggestions[] = 'node__article__strange';
+
+  }
+
+}
+
+/**
+ * @param array $variables
+ */
+function hello_ui_preprocess_node(array &$variables){
+
+  $node = $variables['node'];
+  if ($node->getType() === 'article' && strstr($node->getTitle(), 'strange') !== FALSE){
+    $variables['#attached']['library'][] = 'hello_ui/articles-strange';
+
+  }
+}

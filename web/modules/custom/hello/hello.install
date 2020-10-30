@@ -1,12 +1,11 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: POE10
- * Date: 02/05/2019
- * Time: 10:06
+ * User: malik
+ * Date: 28/05/19
+ * Time: 23:25
  */
 
-use Drupal\Core\Database\Database;
 
 /**
  * Implements hook_schema création de la table hello_user_statistics

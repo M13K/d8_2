@@ -16,7 +16,10 @@ class NodeListController extends ControllerBase
     public function nodeContent($nodeType = NULL){
 
         $storage = $this->entityTypeManager()->getStorage('node');
+//        ksm($storage);
+
         $query = $storage->getQuery();
+        ksm($query);
         if ($nodeType){
             $query->condition('type', $nodeType);
         }

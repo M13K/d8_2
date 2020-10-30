@@ -1,0 +1,7 @@
+web_subscription.subscription:
+  path: 'admin/config/subscription'
+  defaults:
+    _controller: '\Drupal\web_subscription\Controller\SubscriptionController::displaySubscriptionCount'
+    _title: 'Total of subscriptions'
+  requirements:
+    _permission: 'access content'

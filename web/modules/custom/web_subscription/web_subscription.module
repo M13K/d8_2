@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Contains web_subscription.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function web_subscription_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the web_subscription module.
+    case 'help.page.web_subscription':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Module to handle subsrciptions') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+function web_subscription_theme() {
+  return [
+    'subscription_block' => [
+      'template' => 'subscription_block',
+      'variables' => ['message' => NULL]
+    ],
+  ];
+}

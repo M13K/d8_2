@@ -21,9 +21,17 @@
         "cweagans/composer-patches": "^1.6.5",
         "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/admin_toolbar": "^1.26",
+        "drupal/bootstrap": "^3.23",
         "drupal/config_split": "^1.4",
-        "drupal/console": "^1.0.2",
+        "drupal/console": "~1.0",
         "drupal/core": "^8.6.0",
+        "drupal/diff": "^1.0@RC",
+        "drupal/ds": "^3.3",
+        "drupal/migrate_plus": "^4.2",
+        "drupal/migrate_source_yaml": "^1.2",
+        "drupal/mmenu": "1.x-dev",
+        "drupal/paragraphs": "^1.9",
+        "drupal/token": "^1.5",
         "drush/drush": "^9.0.0",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
@@ -82,5 +90,6 @@
                 ".gitattributes": "../.gitattributes"
             }
         }
+
     }
 }

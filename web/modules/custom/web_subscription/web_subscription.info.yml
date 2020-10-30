@@ -1,0 +1,5 @@
+name: 'web_subscription'
+type: module
+description: 'Module to handle subsrciptions'
+core: 8.x
+package: 'Custom'

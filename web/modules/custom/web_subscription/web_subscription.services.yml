@@ -1,0 +1,4 @@
+services:
+  web_subscription.counter:
+    class: Drupal\web_subscription\SubscriptionCounter
+    arguments: ['@entity.query', '@entity.manager']

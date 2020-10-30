@@ -1,0 +1,21 @@
+name: HelloUi
+type: theme
+base theme: classy
+description: 'Un thème indicible'
+core: 8.x
+package: Hello
+libraries:
+  - hello_ui/global
+
+regions:
+  header: Header
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary'
+  breadcrumb: Breadcrumb
+  minotaure: Minotaure
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  left_sidebar: 'Left sidebar'
+  right_sidebar: 'Right sidebar'
+  footer: Footer

@@ -18,12 +18,14 @@ namespace Drupal\hello\Plugin\Block;
 class HelloBlock extends \Drupal\Core\Block\BlockBase
 {
     /**
-     * @return array|void
+     * @return array
      */
     public function build()
     {
         // TODO: Implement build() method.
-
+        $storage = \Drupal::entityTypeManager()->getStorage('node');
+        $query = $storage->getQuery();
+        ksm($query);
         $date = \Drupal::service('datetime.time')->getCurrentTime();
         $formatter = \Drupal::service('date.formatter');
         $user = \Drupal::currentUser()->getDisplayName();

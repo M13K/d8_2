@@ -29,6 +29,7 @@ function hello_cron() {
     $nb_suppressions = \Drupal::database()->delete('hello_user_statistics')
         ->condition('time', REQUEST_TIME - $purge_days_number * (24*3600), '<')
         ->execute();
+
     \Drupal::messenger()->addMessage(t('@nb_suppressions records have been deleted.',
         ['@nb_suppressions' => $nb_suppressions]));
 }

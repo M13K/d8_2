@@ -1,0 +1,22 @@
+
+# Subscription menu items definition
+entity.subscription.collection:
+  title: 'Subscription list'
+  route_name: entity.subscription.collection
+  description: 'List Subscription entities'
+  parent: system.admin_structure
+  weight: 100
+
+subscription.admin.structure.settings:
+  title: 'Subscription settings'
+  description: 'Configure Subscription entities'
+  route_name: subscription.settings
+  parent: system.admin_structure
+
+
+web_subscription.subscription:
+  title:  'Subscription'
+  route_name: web_subscription.subscription
+  description:  'Total of subscription page'
+  menu_name: admin
+  parent: system.admin_config

@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+/**
+ * @param array $suggestions
+ * @param array $variables
+ */
+function bootstrap_saas_theme_suggestions_node_alter(array &$suggestions, array $variables){
+
+  $elements = $variables['elements'];
+  $node = $elements['#node'];
+
+  if ($node->getType() === 'article' && strstr($node->getTitle(), 'strange') !== FALSE){
+    $suggestions[] = 'node__article__strange';
+
+  }
+
+}
+
+/**
+ * @param array $variables
+ */
+function bootstrap_saas_preprocess_node(array &$variables){
+
+  $node = $variables['node'];
+  if ($node->getType() === 'article' && strstr($node->getTitle(), 'strange') !== FALSE){
+    $variables['#attached']['library'][] = 'bootstrap_saas/articles-strange';
+
+  }
+}
